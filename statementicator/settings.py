@@ -122,6 +122,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'statementicatordb.statementicatordb',
+    'statementicator.web',
 )
 
 # A sample logging configuration. The only tangible logging
