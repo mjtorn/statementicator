@@ -132,11 +132,21 @@ INSTALLED_APPS = (
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'formatters': {
+        'normal': {
+            'format': '[%(asctime)s] %(levelname)7s: %(message)s',   
+        },
+    },
     'handlers': {
         'mail_admins': {
             'level': 'ERROR',
             'class': 'django.utils.log.AdminEmailHandler'
-        }
+        },
+        'stdout': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'normal',
+        },
     },
     'loggers': {
         'django.request': {
@@ -144,6 +154,10 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': True,
         },
+        'statementicatordb.parser': {
+            'handlers': ['stdout'],
+            'propagate': True,
+        }
     }
 }
 
