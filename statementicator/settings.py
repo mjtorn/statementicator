@@ -161,6 +161,15 @@ LOGGING = {
     }
 }
 
+DATE_INPUT_FORMATS = (
+    # .fi
+    '%d.%m.%Y',
+    # defaults
+    '%Y-%m-%d', '%m/%d/%Y', '%m/%d/%y', '%b %d %Y',
+    '%b %d, %Y', '%d %b %Y', '%d %b, %Y', '%B %d %Y',
+    '%B %d, %Y', '%d %B %Y', '%d %B, %Y',
+)
+
 try:
     from custom_settings import *
 except ImportError:
