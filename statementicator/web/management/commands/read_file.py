@@ -1,5 +1,7 @@
 # vim: tabstop=4 expandtab autoindent shiftwidth=4 fileencoding=utf-8
 
+from django.db.transaction import commit_on_success
+
 from django.core.management.base import BaseCommand, CommandError
 
 from statementicatordb import parser
@@ -19,6 +21,7 @@ class Command(BaseCommand):
         make_option('--format', action='store', dest='format', help='File format'),
     )
 
+    @commit_on_success
     def handle(self, *args, **options):
         """Executioner
         """
